@@ -1,14 +1,13 @@
 import Navbar from "./Component/Navbar"
 import './App.css';
-import Slider from "./Component/Slider";
 import Footer from "./Component/Footer";
-import Data from "./Data.json";
+import AllRoutes from "./Component/AllRoutes";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <Slider start={Data.banner.start} />
+      <AllRoutes/>
       <Footer/>
     </div>
   );
