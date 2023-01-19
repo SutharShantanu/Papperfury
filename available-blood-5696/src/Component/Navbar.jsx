@@ -1,4 +1,6 @@
 import Logo from "../Images/Logo_Nav.png"
+import style from "./Style/style.css"
+import { Link as ReactLink } from "react-router-dom";
 
 import {
     Box,
@@ -29,9 +31,21 @@ import {
 
 export default function WithSubnavigation () {
     const { isOpen, onToggle } = useDisclosure();
-
     return (
         <Box>
+            <div className='pre_nav' >
+                <div className="left">
+                    <p>Sell on Pepperfury</p>
+                    <p>Become a Franchisee</p>
+                    <p>Buy in Bulk</p>
+                    <p>Find a Studio</p>
+                    <p>Find Design Inspiration</p>
+                </div>
+                <div className="right">
+                    <a href="#">Enter Pincode <img src="https://ii1.pepperfry.com/images/svg/icon-edit-21.svg" alt="" /></a>
+                    <p>Enter Paperfury Studio</p>
+                </div>
+            </div>
             <Flex
                 bg={useColorModeValue('white', 'gray.800')}
                 color={useColorModeValue('gray.600', 'white')}
@@ -56,15 +70,14 @@ export default function WithSubnavigation () {
                     />
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-                    <Image src={Logo} alt='' w="60px" />
-
+                    <ReactLink to="/">
+                        <Image src={Logo} alt='' w="60px" />
+                    </ReactLink>
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
-
-                <Input type="search" placeholder="Search" w="30" mr="1rem"  />
-
+                <Input type="search" placeholder="Search" w="30" mr="1rem" />
                 <Stack
                     flex={{ base: 1, md: 0 }}
                     justify={'flex-end'}
@@ -78,7 +91,7 @@ export default function WithSubnavigation () {
                         href={'#'}
                         _hover={{
                             textDecoration: "none",
-                            color: 'green.300',
+                            color: '#ff7035',
                         }}>
                         Sign In
                     </Button>
@@ -87,16 +100,15 @@ export default function WithSubnavigation () {
                         fontSize={'sm'}
                         fontWeight={600}
                         color={'white'}
-                        bg={'green.400'}
+                        bg={'#ff7035'}
                         href={'#'}
                         _hover={{
-                            bg: 'green.300',
+                            bg: '#f78352',
                         }}>
                         Sign Up
                     </Button>
                 </Stack>
             </Flex>
-
             <Collapse in={isOpen} animateOpacity>
                 <MobileNav />
             </Collapse>
@@ -159,12 +171,12 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             display={'block'}
             p={2}
             rounded={'md'}
-            _hover={{ bg: useColorModeValue('green.50', 'gray.900') }}>
+            _hover={{ bg: useColorModeValue('orange.50', 'gray.900') }}>
             <Stack direction={'row'} align={'center'}>
                 <Box>
                     <Text
                         transition={'all .3s ease'}
-                        _groupHover={{ color: 'green.400' }}
+                        _groupHover={{ color: '#ff7035' }}
                         fontWeight={500}>
                         {label}
                     </Text>
@@ -178,7 +190,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                     justify={'flex-end'}
                     align={'center'}
                     flex={1}>
-                    <Icon color={'green.400'} w={5} h={5} as={ChevronRightIcon} />
+                    <Icon color={'#ff7035'} w={5} h={5} as={ChevronRightIcon} />
                 </Flex>
             </Stack>
         </Link>

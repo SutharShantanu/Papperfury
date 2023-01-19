@@ -1,0 +1,50 @@
+.top {
+ border: 0px solid red;
+ display: flex;
+ width: 88%;
+ margin: 0px auto;
+}
+.sliding {
+ padding: 20px 0px;
+ width: 80%;
+ margin: 0px 20px 0px 0px;
+}
+.stat20 {
+ margin: 20px 0px;
+ width: 25%;
+}
+.stat20:hover {
+ cursor: pointer;
+}
+
+.stat20 > img {
+ height: 100%;
+ object-fit: cover;
+}
+
+.ads {
+ width: 88%;
+ margin: auto;
+}
+
+.room {
+ width: 88%;
+ margin: auto;
+}
+
+.room_card {
+ display: flex;
+ justify-content: space-between;
+}
+
+.room_card > div {
+ width: 24%;
+ padding: 10px;
+ border: 3px solid white;
+ transition: all 0.5s;
+}
+.room_card > div:hover {
+    cursor: pointer;
+ padding: 10px;
+ border: 3px solid #ff7035;
+}
