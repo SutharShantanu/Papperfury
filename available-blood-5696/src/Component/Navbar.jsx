@@ -22,6 +22,7 @@ import {
     Input,
     InputGroup
 } from '@chakra-ui/react';
+import { BsCart2 } from 'react-icons/fa';
 import {
     HamburgerIcon,
     CloseIcon,
@@ -109,7 +110,7 @@ export default function WithSubnavigation () {
                             _hover={{
                                 bg: '#f78352',
                             }}>
-                            Sign Up
+                            <BsCart2 />
                         </Button>
                     </ReactLink>
                 </Stack>
