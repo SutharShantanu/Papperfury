@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
+.main {
+ border: 1px solid red;
+ padding: 20px;
+ display: flex;
+}
+.filter {
+ border: 1px solid green;
+ width: 30%;
+}
+.data {
+ border: 1px solid purple;
+ width: 70%;
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 1.25rem;
+}
+.fur_card {
+ border: 3px solid white;
+ padding: 10px;
+ text-align: left;
+ border-radius: 8px;
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ transition: all 0.5s;
+ cursor: pointer;
+}
+.fur_card:hover {
+ border: 3px solid #ff7035;
+ border-radius: 8px;
+}
+.fur_card > img {
+ width: 100%;
+ border-radius: 8px;
+}
+.extras > h4 {
+ font-size: 1.25rem;
+ font-weight: 500;
+ line-height: 21px;
+ margin: 0.62rem;
+}
+.extras > h5 {
+ font-weight: 700;
+ color: #ff7035;
+ margin: 0.62rem;
+}
+.extras > p {
+ color: #6cb060;
+ margin: 0.62rem;
+}
