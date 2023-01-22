@@ -1,0 +1,52 @@
+/* ==========================================
+    FOR DEMO PURPOSE
+  ========================================== */
+body {
+ background: #2a2e32;
+}
+
+.text-small {
+ font-size: 0.9rem;
+}
+
+a {
+ color: inherit;
+ text-decoration: none;
+ transition: all 0.3s;
+}
+
+a:hover,
+a:focus {
+ text-decoration: none;
+}
+
+.form-control {
+ background: #212529;
+ border-color: #545454;
+}
+
+.form-control:focus {
+ background: #212529;
+}
+
+footer {
+ background: #f3f5f7;
+ text-align: left;
+}
+.text-white {
+    color: #2a2e32;
+}
+
+div > p {
+ margin: 15px;
+}
+
+body,
+html {
+ height: 100%;
+}
+
+.col-lg-4 > img {
+ width: 20%;
+ margin-left: 15px;
+}

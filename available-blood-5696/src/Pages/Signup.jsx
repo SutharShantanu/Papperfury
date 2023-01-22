@@ -19,8 +19,38 @@ import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
+let log_user = {
+    name: "",
+    email: "",
+    password: "",
+}
+
 export default function SignupCard () {
     const [showPassword, setShowPassword] = useState(false);
+    const [f_email, setF_email] = useState("");
+    const [f_password, setF_password] = useState("");
+    const [f_name, setF_name] = useState("");
+    const [l_name, setL_name] = useState("");
+
+    const handle = (e) => {
+
+        if (f_name === "" && l_name === "") {
+            alert("Please enter Full Name !")
+        } else if (f_name === "") {
+            alert("Please enter First Name !")
+        } else if (l_name === "") {
+            alert("Please enter Last Name !")
+        } else if (f_email === "") {
+            alert("Please enter Email !");
+        } else if (f_password === "") {
+            alert("Please enter Password !");
+        }
+        const { email, password } = log_user;
+        setF_password(password);
+        setF_email(email);
+    }
+
+    console.log(log_user);
 
     return (
         <Flex
@@ -44,24 +74,24 @@ export default function SignupCard () {
                             <Box>
                                 <FormControl id="firstName" isRequired>
                                     <FormLabel>First Name</FormLabel>
-                                    <Input type="text" />
+                                    <Input type="text" value={f_name} onChange={((e) => setF_name(e.target.value))} />
                                 </FormControl>
                             </Box>
                             <Box>
                                 <FormControl id="lastName">
                                     <FormLabel>Last Name</FormLabel>
-                                    <Input type="text" />
+                                    <Input type="text" value={l_name} onChange={((e) => setL_name(e.target.value))} />
                                 </FormControl>
                             </Box>
                         </HStack>
                         <FormControl id="email" isRequired>
                             <FormLabel>Email address</FormLabel>
-                            <Input type="email" />
+                            <Input type="email" value={f_email} onChange={((e) => setF_email(e.target.value))} />
                         </FormControl>
                         <FormControl id="password" isRequired>
                             <FormLabel>Password</FormLabel>
                             <InputGroup>
-                                <Input type={showPassword ? 'text' : 'password'} />
+                                <Input type={showPassword ? 'text' : 'password'} value={f_password} onChange={((e) => setF_password(e.target.value))} />
                                 <InputRightElement h={'full'}>
                                     <Button
                                         variant={'ghost'}
@@ -73,11 +103,12 @@ export default function SignupCard () {
                                 </InputRightElement>
                             </InputGroup>
                         </FormControl>
-                            <Text fontSize={'sm'} color={'grey'} w={"25rem"}>
-                                By registering you agree to our <Link>Terms & Conditions</Link>
-                            </Text>
+                        <Text fontSize={'sm'} color={'grey'} w={"25rem"}>
+                            By registering you agree to our <Link>Terms & Conditions</Link>
+                        </Text>
                         <Stack spacing={10} pt={2}>
                             <Button
+                                onClick={handle}
                                 loadingText="Submitting"
                                 size="lg"
                                 bg={'#ff7035'}
@@ -90,7 +121,7 @@ export default function SignupCard () {
                         </Stack>
                         <Stack pt={6}>
                             <Text align={'center'}>
-                                Already a user? <Link color={'#f78352'}>Login</Link>
+                                Already a user? <Link href='./login' color={'#f78352'}>Login</Link>
                             </Text>
                         </Stack>
                         <Stack>
