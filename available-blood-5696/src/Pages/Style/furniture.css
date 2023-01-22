@@ -1,16 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 
 .main {
- border: 1px solid red;
+ border: 0px solid red;
  padding: 20px;
  display: flex;
 }
 .filter {
- border: 1px solid green;
+ border: 0px solid green;
  width: 30%;
 }
 .data {
- border: 1px solid purple;
+ border: 0px solid purple;
  width: 70%;
  display: grid;
  grid-template-columns: repeat(3, 1fr);
@@ -47,4 +47,35 @@
 .extras > p {
  color: #6cb060;
  margin: 0.62rem;
+}
+.filter>form {
+ box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+ text-align: left;
+ width: 90%;
+ border-radius: 8px;
+ padding: 20px;
+ margin: 0px 20px;
+}
+form > h2 {
+ font-size: revert;
+ margin:10px 0px ;
+}
+form > hr {
+ margin: 10px 0px 0px 0px;
+}
+label {
+ padding: 0px 5px;
+ margin: 5px 15px;
+ cursor: pointer;
+ transition: all 0.2s;
+}
+input{
+    accent-color: #ff7035;
+}
+label:hover {
+ color: #ff7035;
+ font-weight: 600;
+}
+input[type="radio"] {
+ color: #ff7035;
 }

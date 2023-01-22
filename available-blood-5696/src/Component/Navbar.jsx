@@ -17,18 +17,20 @@ import {
     PopoverContent,
     useColorModeValue,
     Image,
-    useBreakpointValue,
     useDisclosure,
     Input,
-    InputGroup
 } from '@chakra-ui/react';
-import { BsCart2 } from 'react-icons/fa';
 import {
     HamburgerIcon,
     CloseIcon,
     ChevronDownIcon,
     ChevronRightIcon,
 } from '@chakra-ui/icons';
+
+import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 
 export default function WithSubnavigation () {
     const { isOpen, onToggle } = useDisclosure();
@@ -84,9 +86,10 @@ export default function WithSubnavigation () {
                     justify={'flex-end'}
                     direction={'row'}
                     spacing={6}>
-                    <ReactLink to="/login">
+                    <ReactLink to="signup">
                         <Button
                             mt={'12px'}
+                            mr={'5px'}
                             as={'a'}
                             fontSize={'sm'}
                             fontWeight={600}
@@ -96,11 +99,17 @@ export default function WithSubnavigation () {
                                 textDecoration: "none",
                                 color: '#ff7035',
                             }}>
-                            Sign In
+                            Sign Up
                         </Button>
                     </ReactLink>
-                    <ReactLink to="/signup" >
+
+                        <HelpOutlineOutlinedIcon style={{ margin: "9px", cursor: "pointer", }} />
+                        <FavoriteBorderOutlinedIcon style={{ margin: "9px", cursor: "pointer", }} />
+                        <PersonOutlineOutlinedIcon style={{ margin: "9px", cursor: "pointer", }} />
+
+                    <ReactLink to="/cart" >
                         <Button
+                            ml={'2px'}
                             display={{ base: 'none', md: 'inline-flex' }}
                             fontSize={'sm'}
                             fontWeight={600}
@@ -110,7 +119,7 @@ export default function WithSubnavigation () {
                             _hover={{
                                 bg: '#f78352',
                             }}>
-                            <BsCart2 />
+                            <ShoppingCartOutlinedIcon />
                         </Button>
                     </ReactLink>
                 </Stack>
@@ -278,24 +287,9 @@ const NAV_ITEMS: Array<NavItem> = [
         label: 'Furniture',
         children: [
             {
-                label: 'Sofas',
-                subLabel: '3 Seats',
-                href: '#',
-            },
-            {
-                label: 'Sofas',
-                subLabel: '3 Seats or 2 Seats',
-                href: '#',
-            },
-            {
-                label: 'Sofas',
-                subLabel: '3 Seats or 2 Seats',
-                href: '#',
-            },
-            {
-                label: 'Chairs',
-                subLabel: 'Office Chairs',
-                href: '#',
+                label: 'All Furniture',
+                subLabel: 'Dinning, Cupboard, Almirahs and Table etc',
+                href: 'furniture',
             },
         ],
     },
@@ -306,12 +300,7 @@ const NAV_ITEMS: Array<NavItem> = [
                 label: 'Job Board',
                 subLabel: 'Find your dream design job',
                 href: '#',
-            },
-            {
-                label: 'Freelance Projects',
-                subLabel: 'An exclusive list for contract work',
-                href: '#',
-            },
+            }
         ],
     },
     {
@@ -321,12 +310,7 @@ const NAV_ITEMS: Array<NavItem> = [
                 label: 'Job Board',
                 subLabel: 'Find your dream design job',
                 href: '#',
-            },
-            {
-                label: 'Freelance Projects',
-                subLabel: 'An exclusive list for contract work',
-                href: '#',
-            },
+            }
         ],
     }, {
         label: 'Home Decor',
@@ -335,12 +319,7 @@ const NAV_ITEMS: Array<NavItem> = [
                 label: 'Job Board',
                 subLabel: 'Find your dream design job',
                 href: '#',
-            },
-            {
-                label: 'Freelance Projects',
-                subLabel: 'An exclusive list for contract work',
-                href: '#',
-            },
+            }
         ],
     },
 ];
