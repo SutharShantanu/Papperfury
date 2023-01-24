@@ -18,12 +18,7 @@ import {
 import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
-
-let log_user = {
-    name: "",
-    email: "",
-    password: "",
-}
+import { useNavigate } from "react-router-dom";
 
 export default function SignupCard () {
     const [showPassword, setShowPassword] = useState(false);
@@ -31,9 +26,11 @@ export default function SignupCard () {
     const [f_password, setF_password] = useState("");
     const [f_name, setF_name] = useState("");
     const [l_name, setL_name] = useState("");
+    const navigate = useNavigate();
+
+
 
     const handle = (e) => {
-
         if (f_name === "" && l_name === "") {
             alert("Please enter Full Name !")
         } else if (f_name === "") {
@@ -45,12 +42,18 @@ export default function SignupCard () {
         } else if (f_password === "") {
             alert("Please enter Password !");
         }
-        const { email, password } = log_user;
-        setF_password(password);
-        setF_email(email);
-    }
 
-    console.log(log_user);
+        let log_user = {
+            email: f_email,
+            password: f_password,
+        }
+        let arr = JSON.parse(localStorage.getItem("user")) || [];
+        arr.push(log_user);
+        localStorage.setItem("user", JSON.stringify(arr));
+        // <Navigate to="/login" />
+        navigate("/login");
+
+    }
 
     return (
         <Flex

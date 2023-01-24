@@ -31,9 +31,13 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+let cart_data = JSON.parse(localStorage.getItem("cart")) || [];
 
 export default function WithSubnavigation () {
     const { isOpen, onToggle } = useDisclosure();
+    // const totalAmountFromApi = cart_data.reduce((acc, e) => {
+    //     return acc + e.price;
+    // }, 0)
     return (
         <Box>
             <div className='pre_nav' >
@@ -120,6 +124,7 @@ export default function WithSubnavigation () {
                                 bg: '#f78352',
                             }}>
                             <ShoppingCartOutlinedIcon />
+                            {cart_data.length}
                         </Button>
                     </ReactLink>
                 </Stack>
@@ -243,6 +248,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
                     fontWeight={600}
                     color={useColorModeValue('gray.600', 'gray.200')}>
                     {label}
+                    
                 </Text>
                 {children && (
                     <Icon

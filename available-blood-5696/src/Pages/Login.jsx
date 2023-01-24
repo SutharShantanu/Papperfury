@@ -13,9 +13,35 @@ import {
   Center,
   useColorModeValue,
 } from '@chakra-ui/react';
+import { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
+import { useNavigate } from "react-router-dom";
+
+
+let data = JSON.parse(localStorage.getItem('user'))
 
 export default function SimpleCard () {
+  const [f_email, setF_email] = useState("");
+  const [f_password, setF_password] = useState("");
+  const navigate = useNavigate();
+
+
+  // console.log(data);
+
+  const handle = () => {
+
+    data.forEach((e) => {
+      if (f_email === e.email && f_password === e.password) {
+        alert("Login successful");
+        navigate("/");
+      }
+      else {
+        alert("Login failed");
+      }
+    })
+  }
+
+
   return (
     <Flex
       minH={'100vh'}
@@ -37,11 +63,11 @@ export default function SimpleCard () {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-              <Input type="email" />
+              <Input type="email" value={f_email} onChange={((e) => setF_email(e.target.value))} />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
-              <Input type="password"/>
+              <Input type="password" value={f_password} onChange={((e) => setF_password(e.target.value))} />
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -52,6 +78,7 @@ export default function SimpleCard () {
                 <Link color={'#f78352'}>Forgot password?</Link>
               </Stack>
               <Button
+                onClick={handle}
                 bg={'#ff7035'}
                 color={'white'}
                 _hover={{

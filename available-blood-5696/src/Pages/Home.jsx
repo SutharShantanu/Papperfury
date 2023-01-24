@@ -5,6 +5,7 @@ import style from "./Style/style.css";
 import { MultipleSlidesExample } from "../Component/Slidebar";
 
 const Home = () => {
+    
     return (
         <>
 

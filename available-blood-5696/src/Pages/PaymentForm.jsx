@@ -10,6 +10,7 @@ import {
     PinInputField,
     Text,
     VStack,
+    Spinner,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -17,6 +18,8 @@ import { useNavigate } from "react-router-dom";
 let data = JSON.parse(localStorage.getItem("cart"));
 
 const PaymentForm = () => {
+    const [isButLoading, setIsButLoading] = useState(false);
+
 
     const [f_name, setF_name] = useState("");
     const [l_name, setL_name] = useState("");
@@ -27,15 +30,21 @@ const PaymentForm = () => {
     const [exp_m, setExp_m] = useState("");
     const [exp_y, setExp_y] = useState("");
     const navigate = useNavigate();
+
     const PaymentDone = () => {
-        if (f_name === "" || l_name === "" || address === "" || city === "" || state === "" || card === "" || exp_m === "" || exp_y === "") {
-            alert("Fill Credentials");
-        }
-        else {
-            alert("Payment Successful");
-            navigate("/successful");
-        }
+        setTimeout(() => {
+            if (f_name === "" || l_name === "" || address === "" || city === "" || state === "" || card === "" || exp_m === "" || exp_y === "") {
+                alert("Fill Credentials");
+            }
+            else {
+                alert("Payment Successful");
+                navigate("/successful");
+            }
+        }, 1000)
     }
+
+
+
     const totalAmountFromApi = data.reduce((acc, e) => {
         return acc + e.price;
     }, 0)
@@ -147,7 +156,7 @@ const PaymentForm = () => {
                             <HStack width="full">
                                 <FormControl>
                                     <FormLabel>Card Number</FormLabel>
-                                    <Input w={280} size="sm" value={card} onChange={((e) => setCard(e.target.value))} />
+                                    <Input type={"number"} w={280} size="sm" value={card} onChange={((e) => setCard(e.target.value))} />
                                 </FormControl>
 
                                 <FormControl>
@@ -165,11 +174,11 @@ const PaymentForm = () => {
                             <HStack>
                                 <FormControl>
                                     <FormLabel>Exp Month</FormLabel>
-                                    <Input size="sm" value={exp_m} onChange={((e) => setExp_m(e.target.value))} />
+                                    <Input type={"number"} size="sm" value={exp_m} onChange={((e) => setExp_m(e.target.value))} />
                                 </FormControl>
                                 <FormControl>
                                     <FormLabel>Exp Year</FormLabel>
-                                    <Input size="sm" value={exp_y} onChange={((e) => setExp_y(e.target.value))} />
+                                    <Input type={"number"} size="sm" value={exp_y} onChange={((e) => setExp_y(e.target.value))} />
                                 </FormControl>
                             </HStack>
 
@@ -179,9 +188,20 @@ const PaymentForm = () => {
                                 fontSize="x"
                                 padding={3}
                                 w="full"
-                                colorScheme="yellow"
+                                colorScheme="green"
                             >
                                 PAY ₹ {totalAmountFromApi}
+                                {!isButLoading && bagbutton && "Add To Cart"}
+                                {!isButLoading && !bagbutton && "ADDED"}
+                                {isButLoading && (
+                                    <Spinner
+                                        thickness="4px"
+                                        speed="0.55s"
+                                        emptyColor="gray.200"
+                                        color="orange.500"
+                                        size="lg"
+                                    />
+                                )}
                             </Button>
                         </VStack>
                     </VStack>

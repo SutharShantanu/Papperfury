@@ -30,19 +30,21 @@ const Cart = () => {
     // is Loading   //
     const [isLoading, setIsLoading] = useState(true);
     const [isButLoading, setIsButLoading] = useState(false);
+    const [paybutton, setpaybutton] = useState(true);
+
     const navigate = useNavigate();
 
     setTimeout(() => {
         setIsLoading(false);
     }, 1500);
 
-    const BackToPRoductPage = () => {
+    const PaymentPage = () => {
         setIsButLoading(true);
 
         setTimeout(() => {
             setIsButLoading(false);
-            navigate("/Hotel");
-        }, 1500);
+            navigate("/payment")
+        }, 1000);
     };
 
     const totalAmountFromApi = cart_data.reduce((acc, e) => {
@@ -58,10 +60,10 @@ const Cart = () => {
             <Wrap justify="center" style={{ marginTop: "80px" }}>
                 <HStack>
                     <VStack spacing={30}>
-                        <Text fontSize="3xl">Please Go To Hotel Section </Text>
+                        <Text fontSize="3xl">Please Add Something in Cart </Text>
                         <Divider />
                         <Button
-                            onClick={() => BackToPRoductPage()}
+                            onClick={PaymentPage}
                             fontSize="x-large"
                             padding={8}
                             colorScheme="yellow"
@@ -205,13 +207,23 @@ const Cart = () => {
                         <Divider w="10%" orientation="vertical" />
 
                         <Button
-                            onClick={() => navigate("/payment")}
+                            onClick={PaymentPage}
                             w="full"
-                            colorScheme="teal"
+                            colorScheme="orange"
                             color="white"
                             size="lg"
-                        >
-                            CheckOut
+                        >{!isButLoading && paybutton && "CheckOut"}
+                            {!isButLoading && !paybutton && "ADDED"}
+                            {isButLoading && (
+                                <Spinner
+                                    thickness="4px"
+                                    speed="0.55s"
+                                    emptyColor="gray.200"
+                                    color="orange.500"
+                                    size="lg"
+                                />
+                            )}
+
                         </Button>
                     </HStack>
 

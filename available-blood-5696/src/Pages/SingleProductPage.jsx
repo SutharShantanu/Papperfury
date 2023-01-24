@@ -12,9 +12,10 @@ import {
 } from "@chakra-ui/react";
 
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { AiOutlineHeart } from "react-icons/ai";
 import axios from "axios";
+
 
 const SingleProductPage = () => {
     const [isButLoading, setIsButLoading] = useState(false);
@@ -22,6 +23,8 @@ const SingleProductPage = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false);
     const [allCartData, setAllCartData] = useState({});
+    const navigate = useNavigate();
+
 
     const param = useParams();
     const getDataFromApi = (data) => {
@@ -50,9 +53,10 @@ const SingleProductPage = () => {
             localStorage.setItem("cart", JSON.stringify(cart_data_all));
             setIsButLoading(false);
             setbagbutton(false);
-        }, 1500);
+            navigate("/cart");
+            window.location.reload();
+        }, 1000);
     };
-
 
     <loading />
 
