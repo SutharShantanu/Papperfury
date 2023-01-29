@@ -191,8 +191,8 @@ const PaymentForm = () => {
                                 colorScheme="green"
                             >
                                 PAY ₹ {totalAmountFromApi}
-                                {!isButLoading && bagbutton && "Add To Cart"}
-                                {!isButLoading && !bagbutton && "ADDED"}
+                                {/* {!isButLoading && bagbutton && "Add To Cart"} */}
+                                {/* {!isButLoading && !bagbutton && "ADDED"} */}
                                 {isButLoading && (
                                     <Spinner
                                         thickness="4px"
