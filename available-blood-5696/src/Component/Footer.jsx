@@ -19,20 +19,20 @@ import { FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 const Footer = () => {
     return (
         <div>
-            <div class="d-flex flex-column h-100">
+            <div className="d-flex flex-column h-100">
 
 
-                <footer class="w-100 py-4 flex-shrink-0">
-                    <div class="container py-4">
-                        <div class="row gy-4 gx-5">
-                            <div class="col-lg-4 col-md-6">
+                <footer className="w-100 py-4 flex-shrink-0">
+                    <div className="container py-4">
+                        <div className="row gy-4 gx-5">
+                            <div className="col-lg-4 col-md-6">
                                 <img src={Logo_Full} alt="" />
-                                <p class="small text-muted">Shopping on pepperfy has been an absolute pleasure. The best about Pepperfry is its Superior merchandise and customer service. The Cassia Z computer table was a delight. I rate Pepperfry as my #1 online provider.</p>
-                                <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">Paperfury.com</a></p>
+                                <p className="small text-muted">Shopping on pepperfy has been an absolute pleasure. The best about Pepperfry is its Superior merchandise and customer service. The Cassia Z computer table was a delight. I rate Pepperfry as my #1 online provider.</p>
+                                <p className="small text-muted mb-0">&copy; Copyrights. All rights reserved. <a className="text-primary" href="#">Paperfury.com</a></p>
                             </div>
-                            <div class="col-lg-2 col-md-6">
-                                <h5 class=" mb-3">Cities we deliver to</h5>
-                                <ul class="list-unstyled text-muted">
+                            <div className="col-lg-2 col-md-6">
+                                <h5 className=" mb-3">Cities we deliver to</h5>
+                                <ul className="list-unstyled text-muted">
                                     <li><a href="#">Delhi</a></li>
                                     <li><a href="#">Chennai</a></li>
                                     <li><a href="#">Kolkata</a></li>
@@ -43,9 +43,9 @@ const Footer = () => {
                                     <li><a href="#">Gwalior</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-2 col-md-6">
-                                <h5 class=" mb-3">Popular Categories</h5>
-                                <ul class="list-unstyled text-muted">
+                            <div className="col-lg-2 col-md-6">
+                                <h5 className=" mb-3">Popular Categories</h5>
+                                <ul className="list-unstyled text-muted">
                                     <li><a href="#">Chairs</a></li>
                                     <li><a href="#">Sofas</a></li>
                                     <li><a href="#">Safe's</a></li>
@@ -56,17 +56,17 @@ const Footer = () => {
                                     <li><a href="#">Study Table</a></li>
                                 </ul>
                             </div>
-                            <div class="col-lg-4 col-md-6">
-                                <h5 class=" mb-3">Newsletter</h5>
-                                <p class="small text-muted">Like what you see? You'll like us even more here. <br />
+                            <div className="col-lg-4 col-md-6">
+                                <h5 className=" mb-3">Newsletter</h5>
+                                <p className="small text-muted">Like what you see? You'll like us even more here. <br />
                                     You won't receive any spam!
                                     <br />
                                     Subscribe to our newsletter & stay up to date!
                                 </p>
                                 <form action="#">
-                                    <div class="input-group mb-3">
-                                        <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" />
-                                        <button class="btn btn-primary" id="button-addon2" type="button"><BiSend /></button>
+                                    <div className="input-group mb-3">
+                                        <input className="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2" />
+                                        <button className="btn btn-primary" id="button-addon2" type="button"><BiSend /></button>
                                     </div>
                                 </form>
                             </div>
@@ -107,7 +107,7 @@ const Footer = () => {
 
 export default Footer;
 
-const Logo = (props: any) => {
+const Logo = (props) => {
     return (
         // <svg
         //     height={32}
@@ -131,10 +131,6 @@ const SocialButton = ({
     children,
     label,
     href,
-}: {
-    children: ReactNode;
-    label: string;
-    href: string;
 }) => {
     return (
         <chakra.button
