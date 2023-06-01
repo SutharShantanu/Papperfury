@@ -4,8 +4,6 @@ Papperfury is a clone of paperfry which is an Indian online furniture and home d
 
 ## Deployment
 
-#### Get all items
-
 ```
   https://paperfury.vercel.app
 ```
@@ -14,8 +12,8 @@ Papperfury is a clone of paperfry which is an Indian online furniture and home d
 
 | Color     | Hex                                                              |
 | --------- | ---------------------------------------------------------------- |
-| Primary   | ![#17274a](https://via.placeholder.com/10/17274a?text=+) #17274a |
-| Secondary | ![#ee5e68](https://via.placeholder.com/10/ee5e68?text=+) #ee5e68 |
+| Primary   | ![#ff7035](https://via.placeholder.com/10/ff7035?text=+) #ff7035 |
+| Secondary | ![#f5f5f5](https://via.placeholder.com/10/f5f5f5?text=+) #f5f5f5 |
 
 ## Badges
 
@@ -79,4 +77,5 @@ We welcome contributions from the community. If you find any issues or have sugg
 
 ## FAQ
 Is this website fully Responsive?
+
 No, As of Now this website isn't fully Responsive. Some of our the part of this website is broken for small screen devices. Our team is working on this soon we will fix this.
