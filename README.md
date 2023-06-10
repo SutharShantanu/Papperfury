@@ -6,9 +6,12 @@ Papperfury is a clone of paperfry which is an Indian online furniture and home d
 
 - [Clone](#clone)
 - [Features](#features)
+- [Requirements](#requirements)
+- [Technologies](#technologies)
 - [Usage](#usage)
 - [Installation](#installation)
 - [Contributing](#contributing)
+- [Conclusion](#conclusion)
 - [FAQ](#faq)
 
 ## Deployment
